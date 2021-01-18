@@ -17,7 +17,7 @@ app.use(fileupload({
 }))
  
 
-app.get("/", async (req, res) => {
+app.get("/YOUR_DATA", async (req, res) => {
   const { resources } = await cloudinary.search
   .expression().execute();
 
@@ -26,7 +26,7 @@ console.log(publicIds)
 res.send(publicIds);
 
 });
-app.post("/update",(req,res)=>{
+app.post("/upload",(req,res)=>{
   const file=req.files;
   console.log(file)
   cloudinary.uploader.upload(file.image.tempFilePath,(err,result)=>{
